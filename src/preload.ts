@@ -7,10 +7,8 @@ import { IpcRenderer } from "electron";
 
 contextBridge.exposeInMainWorld("Api", {
     
-    getFolder :(valeur:string) =>ipcRenderer.invoke("get-folder",valeur),
-    add_folder:(valeur:string)=>ipcRenderer.invoke("add_folder",valeur),
+    getFolder :(valeur:string) =>ipcRenderer.invoke("get_folder",valeur),
+    add_folder:(valeur:string,posision:string)=>ipcRenderer.invoke("add_folder",valeur,posision),
     folder_navigation:(valeurs:string)=>ipcRenderer.invoke("folder_navigation",valeurs),
     get_contenu : (valeur:string)=> ipcRenderer.invoke("get_contenu",valeur)
 })
-
-

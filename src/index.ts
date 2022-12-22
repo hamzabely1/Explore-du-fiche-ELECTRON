@@ -86,29 +86,24 @@ app.on('activate', () => {
     return file
   })*/
 
-
-
-
-
-
-ipcMain.handle("get-folder",(err,parcour)=>{
+ipcMain.handle("get_folder",(err,parcour)=>{
 const data = fs.readdirSync(parcour,'utf-8')
 console.log(data)
-return data 
-    
+return data
+
   });
 
 
 
 ipcMain.handle("folder_navigation",(err,folder_navigation)=>{
 
-    const data = fs.readdirSync(folder_navigation,"utf-8")
+    const data = fs.readdirSync("."+folder_navigation,"utf-8")
     return data
 
    });
-ipcMain.handle("add_folder",(err,name_folder)=>{
+ipcMain.handle("add_folder",(err,name_folder,posision)=>{
 
-  const data = fs.mkdirSync("./hamza/"+name_folder,'0077')
+  const data = fs.mkdirSync("./"+posision+"/"+name_folder,'0077')
   console.log(data)
       
 })
